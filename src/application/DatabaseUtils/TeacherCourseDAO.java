@@ -17,7 +17,27 @@ public class TeacherCourseDAO {
     * field two : teacherID
     * */
 
-
+    public static void insertCourseTeacherRecord(String courseId,String teacherId)
+    {
+        Connection connection = DatabaseConnection.getConnection();
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement("INSERT INTO course_teacher VALUES (?,?)");
+            preparedStatement.setString(1,courseId);
+            preparedStatement.setString(2,teacherId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            if(preparedStatement!=null){
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
     public static Teacher getTeacherByCourseId(String courseId)
     {
         Teacher teacher=null;
