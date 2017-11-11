@@ -138,4 +138,24 @@ public class BatchDAO {
         return list;
     }
 
+    public static void deleteBatch(String id){
+        Connection connection = DatabaseConnection.getConnection();
+        PreparedStatement pstmt = null;
+        try{
+            pstmt = connection.prepareStatement("DELETE FROM batch where id = ?");
+            pstmt.setString(1,id);
+            pstmt.executeUpdate();
+        }catch(Exception exc){
+            exc.printStackTrace();
+        }finally{
+            if(pstmt!=null){
+                try{
+                    pstmt.close();
+                }catch (Exception exc){
+                    exc.printStackTrace();
+                }
+            }
+        }
+    }
+
 }
