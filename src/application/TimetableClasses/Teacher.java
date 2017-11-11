@@ -6,6 +6,11 @@ public class Teacher {
     private String teacherName;
 
     private String department; // ForeignKey
+    public Teacher()
+    {
+        // Default Constructor
+    }
+
     public Teacher(String id,String teacherName,String department){
         this.id = id;
         this.teacherName = teacherName;

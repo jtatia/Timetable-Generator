@@ -10,7 +10,7 @@ import java.util.List;
  * Created by dell on 11/11/2017.
  */
 public class CourseDAO {
-    public void insertCourse(Course course)
+    public static void insertCourse(Course course)
     {
         Connection conn=DatabaseConnection.getConnection();
         PreparedStatement pstmt=null;
@@ -36,7 +36,7 @@ public class CourseDAO {
         }
     }
 
-    public List<Course> getAllCourses()
+    public static List<Course> getAllCourses()
     {
         ArrayList<Course> list=new ArrayList<Course>();
         Connection conn=DatabaseConnection.getConnection();
@@ -70,7 +70,7 @@ public class CourseDAO {
         }
         return list;
     }
-    public Course getCourseByCourseId(String courseId)
+    public static Course getCourseByCourseId(String courseId)
     {
         Connection conn=DatabaseConnection.getConnection();
         Statement stmt=null;
@@ -102,5 +102,26 @@ public class CourseDAO {
             }
         }
         return course;
+    }
+
+    //course_id should be the name of the field in table
+    public void deleteCourse(String id){
+        Connection conn=DatabaseConnection.getConnection();
+        PreparedStatement pstmt = null;
+        try{
+            pstmt = conn.prepareStatement("delete from course where course_id = ?");
+            pstmt.setString(1,id);
+            pstmt.executeUpdate();
+        }catch(Exception exc){
+            exc.printStackTrace();
+        }finally{
+            if(pstmt!=null){
+                try{
+                    pstmt.close();
+                }catch (Exception exc){
+                    exc.printStackTrace();
+                }
+            }
+        }
     }
 }
