@@ -1,20 +1,23 @@
 package application.TimetableClasses;
 
 public class Course {
-    private String id;
+    private String courseId;
 
     private String courseName;
 
     private int frequencyOfCourse;
 
-    public Course(String id,String courseName,int frequencyOfCourse){
-        this.id = id;
+    private int courseCredits;
+
+    public Course(String courseId,String courseName,int frequencyOfCourse,int courseCredits){
+        this.courseId = courseId;
         this.courseName = courseName;
         this.frequencyOfCourse = frequencyOfCourse;
+        this.courseCredits = courseCredits;
     }
 
-    public String getId() {
-        return this.id;
+    public String getCourseId() {
+        return this.courseId;
     }
 
     public String getCourseName() {
@@ -25,8 +28,12 @@ public class Course {
         return this.frequencyOfCourse;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public int getCourseCredits() {
+        return this.courseCredits;
+    }
+
+    public void setCourseId(String id) {
+        this.courseId = courseId;
     }
 
     public void setCourseName(String courseName) {
@@ -35,5 +42,9 @@ public class Course {
 
     public void setFrequencyOfCourse(int frequencyOfCourse) {
         this.frequencyOfCourse = frequencyOfCourse;
+    }
+
+    public void setCourseCredits(int courseCredits) {
+        this.courseCredits = courseCredits;
     }
 }
