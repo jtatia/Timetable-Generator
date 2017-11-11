@@ -1,22 +1,32 @@
 package application;
 
-import application.TimetableClasses.Course;
-import application.TimetableClasses.TimetableSlots;
-import application.TimetableClasses.Triplet;
+import application.TimetableClasses.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class TimetableAlgorithm {
+    final int row = 5, column=6;
+    public boolean isCourseTeacherPresent(ArrayList<ArrayList<TimetableSlots>> timetable,Doublet d,Batch b){
+        for(int i=0;i<row;i++){
+            for(int j=0;j<column;j++){
+                if(timetable.get(i).get(j).isDoubletPresent(d)){
+                    timetable.get(i).get(j).insertBatch(b);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public List<ArrayList<TimetableSlots>> createTimetable(ArrayList<Triplet> tripletList) {
         int i,j;
-        final int row = 5, column=6;
         ArrayList<ArrayList<TimetableSlots>> timetable = new ArrayList<ArrayList<TimetableSlots>>();
-        ArrayList<ArrayList<Course>> dayList = new ArrayList<ArrayList<Course>>(row);
+        ArrayList<ArrayList<Doublet>> dayList = new ArrayList<ArrayList<Doublet>>(row);
         for(i=0;i<row;i++){
             timetable.add(new ArrayList<TimetableSlots>());
-            dayList.add(new ArrayList<Course>());
+            dayList.add(new ArrayList<Doublet>());
         }
         for(i=0;i<row;i++){
             for(j=0;j<column;j++){
@@ -25,10 +35,15 @@ public class TimetableAlgorithm {
         }
         for(Triplet t:tripletList){
             int f = t.getCourse().getFrequencyOfCourse();
+            Doublet doublet = new Doublet(t.getTeacher(),t.getCourse());
             while(f!=0){
                 boolean found = false;
+                if(isCourseTeacherPresent(timetable,doublet,t.getBatch())){
+                    f--;
+                    continue;
+                }
                 for(i=0;i<row;i++){
-                    if(dayList.get(i).contains(t.getCourse())){
+                    if(dayList.get(i).contains(doublet)){
                         continue;
                     }
                     Random rand = new Random();
@@ -36,12 +51,12 @@ public class TimetableAlgorithm {
                     int randomPeriod = rand.nextInt(((row-1)-0)+1);
                     for(j=0;j<column;j++){
                         TimetableSlots ts =timetable.get(i).get(randomPeriod);
-                        if(!ts.isTeacherPresent(t.getTeacher()) && !ts.isBatchPresent(t.getBatch())){
+                        if(!ts.isTeacherPresent(doublet.getDTeacher()) && !ts.isBatchPresent(t.getBatch())){
                             found = true;
-                            ts.insertTeacher(t.getTeacher());
+                            ts.insertDoublet(doublet);
                             ts.insertBatch(t.getBatch());
                             timetable.get(i).set(randomPeriod,ts);
-                            dayList.get(i).add(t.getCourse());
+                            dayList.get(i).add(doublet);
                             break;
                         }
                         randomPeriod = (randomPeriod+j)%column;
@@ -51,12 +66,12 @@ public class TimetableAlgorithm {
                     for(i=0;i<row;i++){
                         for(j=0;j<column;j++){
                             TimetableSlots ts =timetable.get(i).get(j);
-                            if(!ts.isTeacherPresent(t.getTeacher()) && !ts.isBatchPresent(t.getBatch())){
+                            if(!ts.isTeacherPresent(doublet.getDTeacher()) && !ts.isBatchPresent(t.getBatch())){
                                 found = true;
-                                ts.insertTeacher(t.getTeacher());
+                                ts.insertDoublet(doublet);
                                 ts.insertBatch(t.getBatch());
                                 timetable.get(i).set(j,ts);
-                                dayList.get(i).add(t.getCourse());
+                                dayList.get(i).add(doublet);
                                 break;
                             }
                         }
