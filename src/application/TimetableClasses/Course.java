@@ -9,6 +9,11 @@ public class Course {
 
     private int courseCredits;
 
+    public Course()
+    {
+
+    }
+
     public Course(String courseId,String courseName,int frequencyOfCourse,int courseCredits){
         this.courseId = courseId;
         this.courseName = courseName;
