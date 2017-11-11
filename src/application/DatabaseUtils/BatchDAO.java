@@ -68,13 +68,13 @@ public class BatchDAO {
 
     }
 
-    public static List<Batch> getBatchByID(String id){
+    public static Batch getBatchByID(String id){
 
         Connection connection = DatabaseConnection.getConnection();
 
         PreparedStatement preparedStatement = null;
-        ArrayList<Batch> list = new ArrayList<Batch>();
 
+        Batch batch = null;
         try {
             preparedStatement = connection.prepareStatement("SELECT * FROM batch WHERE id = ?");
             preparedStatement.setString(1,id);
@@ -82,10 +82,9 @@ public class BatchDAO {
 
             while(resultSet.next())
             {
-                Batch batch = new Batch();
+                batch = new Batch();
                 batch.setId(resultSet.getString(1));
                 batch.setDepartment(resultSet.getString(2));
-                list.add(batch);
             }
 
         } catch (SQLException e) {
@@ -100,7 +99,7 @@ public class BatchDAO {
             }
         }
 
-        return list;
+        return batch;
 
     }
 
