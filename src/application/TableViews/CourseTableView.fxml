@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane fx:id="CourseTableAnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TableViews.CourseTableViewController">
+   <children>
+      <TableView fx:id="CourseTable" layoutX="85.0" layoutY="53.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="CourseTableIDColumn" prefWidth="75.0" text="CourseID" />
+          <TableColumn fx:id="CourseTableNameColumn" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="CourseTableFrequencyColumn" prefWidth="75.0" text="Weekly Frequency" />
+            <TableColumn fx:id="CourseTableCreditColumn" prefWidth="75.0" text="Credits" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</AnchorPane>
