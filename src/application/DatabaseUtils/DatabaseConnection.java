@@ -8,7 +8,7 @@ import java.sql.SQLException;
  * Created by dell on 11/11/2017.
  */
 public class DatabaseConnection {
-    public static Connection conn;
+    public static Connection conn = null;
     public static void openConnection()
     {
         String connectionUrl="jdbc:mysql://localhost:3306/student";
