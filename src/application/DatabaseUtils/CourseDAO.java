@@ -103,4 +103,25 @@ public class CourseDAO {
         }
         return course;
     }
+
+    //course_id should be the name of the field in table
+    public void deleteCourse(String id){
+        Connection conn=DatabaseConnection.getConnection();
+        PreparedStatement pstmt = null;
+        try{
+            pstmt = conn.prepareStatement("delete from course where course_id = ?");
+            pstmt.setString(1,id);
+            pstmt.executeUpdate();
+        }catch(Exception exc){
+            exc.printStackTrace();
+        }finally{
+            if(pstmt!=null){
+                try{
+                    pstmt.close();
+                }catch (Exception exc){
+                    exc.printStackTrace();
+                }
+            }
+        }
+    }
 }

@@ -92,4 +92,23 @@ public class TeacherDAO {
         }
         return teacherObj;
     }
+
+    public void deleteTeacher(String id){
+        PreparedStatement pstmt = null;
+        try{
+            pstmt = myCon.prepareStatement("delete from teacher where id = ?");
+            pstmt.setString(1,id);
+            pstmt.executeUpdate();
+        }catch(Exception exc){
+            exc.printStackTrace();
+        }finally{
+            if(pstmt!=null){
+                try{
+                    pstmt.close();
+                }catch (Exception exc){
+                    exc.printStackTrace();
+                }
+            }
+        }
+    }
 }
