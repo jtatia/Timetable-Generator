@@ -3,26 +3,30 @@ package application.TimetableClasses;
 public class Batch {
     private String id;
 
-    private String dept;
+    private String department;
 
     public Batch(String id, String dept) {
         this.id = id;
-        this.dept = dept;
+        this.department = dept;
+    }
+
+    public Batch() {
+
     }
 
     public String getId() {
         return this.id;
     }
 
-    public String getDept() {
-        return this.dept;
+    public String getDepartment() {
+        return this.department;
     }
 
     public void setId(String id) {
         this.id = id;
     }
 
-    public void setDept(String dept) {
-        this.dept = dept;
+    public void setDepartment(String dept) {
+        this.department = dept;
     }
 }
