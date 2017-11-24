@@ -23,6 +23,15 @@ public class Doublet {
         this.course = course;
     }
 
+    public Doublet(Teacher teacher, Course course,ArrayList<Batch> blist) {
+        this.listOfBatch = new ArrayList<Batch>();
+        for(Batch b:blist){
+            this.listOfBatch.add(b);
+        }
+        this.teacher = teacher;
+        this.course = course;
+    }
+
     public void insertDoubletBatch(Batch b){
         this.listOfBatch.add(b);
     }
