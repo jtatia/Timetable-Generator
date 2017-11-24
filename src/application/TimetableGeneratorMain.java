@@ -33,6 +33,7 @@ public class TimetableGeneratorMain extends Application {
         Scene scene = new Scene(loader.load());
         primaryStage.setScene(scene);
         primaryStage.show();
+        primaryStage.setMaximized(true);
         primaryStage.setResizable(false);
     }
 }
