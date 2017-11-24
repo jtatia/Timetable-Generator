@@ -34,12 +34,10 @@ public class TimetableAlgorithm {
                 int f = t.getCourse().getFrequencyOfCourse();
                 Course cr = t.getCourse();
                 for(i=0;i<row;i++) {
-                    if (dayList.get(i).contains(cr)) {
-                        continue;
-                    }
                     Random rand = new Random();
                     //See random number generation maybe buggy
                     int randomPeriod = rand.nextInt(((column - 1) - 0) + 1);
+                    randomPeriod=randomPeriod%6;
                     for (j = 0; j < column; j++) {
                         TimetableSlots ts = timetable.get(i).get(randomPeriod);
                         if (!ts.isTeacherPresent(t.getTeacher()) && !ts.isBatchPresent(t.getBatch())) {
@@ -53,7 +51,7 @@ public class TimetableAlgorithm {
                         }
                         if(f==0)
                             break;
-                        randomPeriod = (randomPeriod + j) % column;
+                        randomPeriod = (randomPeriod + 1) % column;
                     }
                 }
                 if(f!=0){

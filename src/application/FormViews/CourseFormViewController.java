@@ -46,6 +46,11 @@ public class CourseFormViewController {
         int frequencyOfCourse=Integer.parseInt(CourseFrequencyTextField.getText());
         String courseId=CourseIdTextField.getText();
         String courseName=CourseNameTextField.getText();
+        CourseCreditsTextField.setText("");
+        CourseFrequencyTextField.setText("");
+        CourseIdTextField.setText("");
+        CourseNameTextField.setText("");
+
         Course course = new Course(courseId,courseName,frequencyOfCourse,courseCredits);
         CourseDAO.insertCourse(course);
     }
