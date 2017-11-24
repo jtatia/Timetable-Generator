@@ -1,10 +1,15 @@
 package application.FormViews;
 
+import application.DatabaseUtils.CourseDAO;
+import application.TimetableClasses.Course;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
 
 /**
  * Created by dell on 11/11/2017.
@@ -33,4 +38,17 @@ public class CourseFormViewController {
 
     @FXML
     private AnchorPane CourseFormAnchorView;
+
+
+    @FXML
+    private void submitButtonAction(ActionEvent event) throws IOException {
+        int courseCredits=Integer.parseInt(CourseCreditsTextField.getText());
+        int frequencyOfCourse=Integer.parseInt(CourseFrequencyTextField.getText());
+        String courseId=CourseIdTextField.getText();
+        String courseName=CourseNameTextField.getText();
+        Course course = new Course(courseId,courseName,frequencyOfCourse,courseCredits);
+        CourseDAO.insertCourse(course);
+    }
+
+
 }
