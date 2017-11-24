@@ -56,9 +56,9 @@ public class CourseFormViewController {
         CourseIdTextField.setText("");
         CourseNameTextField.setText("");
         TeacherIdTextView.setText("");
-        TeacherCourseDAO.insertCourseTeacherRecord(courseId,teacherId);
         Course course = new Course(courseId,courseName,frequencyOfCourse,courseCredits);
         CourseDAO.insertCourse(course);
+        TeacherCourseDAO.insertCourseTeacherRecord(courseId,teacherId);
     }
 
 

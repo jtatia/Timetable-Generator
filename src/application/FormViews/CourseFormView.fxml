@@ -16,8 +16,7 @@
       <TextField fx:id="CourseNameTextField" layoutX="186.0" layoutY="157.0" prefHeight="25.0" prefWidth="248.0" promptText="Course Name" />
       <TextField fx:id="CourseCreditsTextField" layoutX="186.0" layoutY="213.0" prefHeight="25.0" prefWidth="248.0" promptText="Course Credits" />
       <TextField fx:id="CourseFrequencyTextField" layoutX="186.0" layoutY="268.0" prefHeight="25.0" prefWidth="248.0" promptText="Course Frequency" />
-      <Button fx:id="CourseButtonSubmitForm" layoutX="207.0" layoutY="381.0" mnemonicParsing="false" onAction="#submitButtonAction" prefHeight="25.0" prefWidth="93.0" text="Submit" />
-      <Button fx:id="DeleteButtonTextField" layoutX="324.0" layoutY="381.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" text="Delete" />
+      <Button fx:id="CourseButtonSubmitForm" layoutX="254.0" layoutY="382.0" mnemonicParsing="false" onAction="#submitButtonAction" prefHeight="25.0" prefWidth="93.0" text="Submit" />
       <TextField fx:id="TeacherIdTextView" layoutX="186.0" layoutY="326.0" prefHeight="25.0" prefWidth="248.0" promptText="Teacher Id" />
    </children>
 </AnchorPane>
