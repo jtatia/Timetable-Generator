@@ -53,12 +53,12 @@ public class FinalTimetableViewController implements Initializable {
         {
             FinalTimetableRow r = new FinalTimetableRow();
             r.setDay("Monday");
-            r.setPeriod1("CS355, CS455");
+            r.setPeriod1("CS355, CS455, \nCS355, CS455, \nCS355, CS455");
             r.setPeriod2("CS355, CS455");
             r.setPeriod3("CS355, CS455");
-            r.setPeriod4("CS355, CS455");
+            r.setPeriod4("CS355, CS455, \nCS355, CS455, \nCS355, CS455");
             r.setPeriod5("CS355, CS455");
-            r.setPeriod6("CS355, CS455");
+            r.setPeriod6("CS355, CS455, \nCS355, CS455, \nCS355, CS455");
             list.add(r);
         }
 
