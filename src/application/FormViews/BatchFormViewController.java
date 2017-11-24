@@ -2,6 +2,7 @@ package application.FormViews;
 
 import application.DatabaseUtils.BatchDAO;
 import application.DatabaseUtils.CourseBatchDAO;
+
 import application.TimetableClasses.Batch;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
 
 public class BatchFormViewController {
 
@@ -37,7 +40,7 @@ public class BatchFormViewController {
     private TextArea CoursesTextArea;
 
     @FXML
-    void onSubmitAction(ActionEvent event) {
+    void onSubmitAction(ActionEvent event){
         String deptId=BatchIdTextField.getText();
         String deptName= DepartmentIdTextField.getText();
         String courseTextArea=CoursesTextArea.getText();
