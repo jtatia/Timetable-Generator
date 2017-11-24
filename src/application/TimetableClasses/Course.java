@@ -38,7 +38,7 @@ public class Course {
     }
 
     public void setCourseId(String id) {
-        this.courseId = courseId;
+        this.courseId = id;
     }
 
     public void setCourseName(String courseName) {

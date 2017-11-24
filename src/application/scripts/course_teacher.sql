@@ -4,7 +4,7 @@ use abc;
 
 drop table if exists course_teacher;
 
-CREATE TABLE course_teacher(courseId varchar(10),teacherId varchar(10),FOREIGN KEY (courseId) references course(courseId),FOREIGN KEY (teacherId) references teacher(teacherId));
+CREATE TABLE course_teacher(courseId varchar(10),teacherId varchar(10),FOREIGN KEY (courseId) references course(courseId),FOREIGN KEY (teacherId) references teacher(id));
 
 INSERT INTO course_teacher value('C01','T01');
 INSERT INTO course_teacher value('C02','T02');

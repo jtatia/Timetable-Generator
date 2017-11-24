@@ -26,13 +26,13 @@ public class TeacherCourseDAO {
             preparedStatement.setString(1,courseId);
             preparedStatement.setString(2,teacherId);
             preparedStatement.executeUpdate();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }finally {
             if(preparedStatement!=null){
                 try {
                     preparedStatement.close();
-                } catch (SQLException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -54,7 +54,7 @@ public class TeacherCourseDAO {
                 teacher=teacherDAO.getTeacherById(rs.getString(2));
             }
         }
-        catch (SQLException e) {
+        catch (Exception e) {
             e.printStackTrace();
         }
         finally {
@@ -62,7 +62,7 @@ public class TeacherCourseDAO {
             {
                 try {
                     stmt.close();
-                } catch (SQLException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -85,7 +85,7 @@ public class TeacherCourseDAO {
                 list.add(course);
             }
         }
-        catch (SQLException e) {
+        catch (Exception e) {
             e.printStackTrace();
         }
         finally {
@@ -93,7 +93,7 @@ public class TeacherCourseDAO {
             {
                 try {
                     stmt.close();
-                } catch (SQLException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
