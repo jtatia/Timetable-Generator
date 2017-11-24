@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="DeptFormAnchorView" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FormViews.DepartmentFormViewController">
+<AnchorPane fx:id="DeptFormAnchorView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FormViews.DepartmentFormViewController">
    <children>
-      <Label fx:id="DeptFormHeading" alignment="CENTER" layoutX="192.0" layoutY="49.0" text="Department Input Form" textAlignment="CENTER">
+      <Label fx:id="DeptFormHeading" alignment="CENTER" layoutX="154.0" layoutY="38.0" prefHeight="31.0" prefWidth="308.0" text="Department Input Form" textAlignment="CENTER">
          <font>
-            <Font size="20.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="DeptIdTextField" layoutX="175.0" layoutY="108.0" prefHeight="25.0" prefWidth="269.0" promptText="Dept ID" />
-      <TextField fx:id="DeptNameTextField" layoutX="175.0" layoutY="174.0" prefHeight="26.0" prefWidth="269.0" promptText="Department Name" />
-      <Button fx:id="DeptButtonSubmitForm" layoutX="206.0" layoutY="255.0" mnemonicParsing="false" onAction="#onSubmitAction" prefHeight="26.0" prefWidth="72.0" text="Submit" />
-      <Button fx:id="DeleteButtonTextField" layoutX="330.0" layoutY="255.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Delete" />
+      <TextField fx:id="DeptIdTextField" layoutX="186.0" layoutY="98.0" prefHeight="25.0" prefWidth="248.0" promptText="Dept ID" />
+      <TextField fx:id="DeptNameTextField" layoutX="186.0" layoutY="157.0" prefHeight="25.0" prefWidth="248.0" promptText="Department Name" />
+      <Button fx:id="DeptButtonSubmitForm" layoutX="207.0" layoutY="215.0" mnemonicParsing="false" onAction="#onSubmitAction" prefHeight="26.0" prefWidth="72.0" text="Submit" />
+      <Button fx:id="DeleteButtonTextField" layoutX="331.0" layoutY="214.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Delete" />
    </children>
 </AnchorPane>
