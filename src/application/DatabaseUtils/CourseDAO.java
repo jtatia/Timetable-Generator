@@ -45,7 +45,7 @@ public class CourseDAO {
         try {
             stmt = conn.createStatement();
             rs=stmt.executeQuery("Select * from course");
-            System.out.print(rs);
+
             while(rs.next())
             {
                 Course course =  new Course();
