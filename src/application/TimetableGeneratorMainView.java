@@ -32,13 +32,12 @@ public class TimetableGeneratorMainView implements Initializable{
         try {
             VBox left = FXMLLoader.load(getClass().getResource("SidePanelContent.fxml"));
 
-            VBox right = new VBox(new Label("right"));
-            right.setStyle("-fx-background-color: darkorange");
-            VBox center = new VBox(new Label("center"));
-            center.setStyle("-fx-background-color: darkgreen");
+            String tablePath = "TableViews/CourseTableView.fxml";
+            String formPath = "FormViews/CourseFormView.fxml";
+            AnchorPane table = FXMLLoader.load(getClass().getResource(tablePath));
+            AnchorPane form = FXMLLoader.load(getClass().getResource(formPath));
 
-
-            splitpane.getItems().addAll(left,center,right);
+            splitpane.getItems().addAll(left,table,form);
             splitpane.setDividerPosition(0,1/(double)3);
             splitpane.setDividerPosition(1,2/(double)3);
 
