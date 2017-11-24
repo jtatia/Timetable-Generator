@@ -9,6 +9,18 @@
 
 <AnchorPane fx:id="anchorpane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TimetableGeneratorMainView">
    <children>
-      <SplitPane fx:id="splitpane" prefHeight="500.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <SplitPane fx:id="splitpane" prefHeight="500.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <VBox fx:id="vbox" maxHeight="500.0" maxWidth="180.0" minHeight="500.0" minWidth="180.0" prefHeight="500.0" prefWidth="180.0">
+               <children>
+                  <Button fx:id="Department" onAction="#setDepartment" prefHeight="100.0" prefWidth="180.0" text="Department" />
+                  <Button fx:id="Batch" layoutX="10.0" layoutY="123.0" onAction="#setBatch" prefHeight="100.0" prefWidth="180.0" text="Batch" />
+                  <Button fx:id="Course" layoutX="10.0" layoutY="197.0" onAction="#setCourse" prefHeight="100.0" prefWidth="180.0" text="Course" />
+                  <Button fx:id="Teacher" layoutX="10.0" layoutY="271.0" onAction="#setTeacher" prefHeight="100.0" prefWidth="180.0" text="Teacher" />
+                  <Button fx:id="generate" onAction="#generateTable" prefHeight="100.0" prefWidth="180.0" text="Generate Timetable" />
+               </children>
+            </VBox>
+         </items>
+      </SplitPane>
    </children>
 </AnchorPane>
