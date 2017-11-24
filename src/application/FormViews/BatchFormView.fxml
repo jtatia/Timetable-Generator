@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FormViews.BatchFormViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FormViews.BatchFormViewController">
     <children>
         <Label fx:id="BatchFormHeading" alignment="CENTER" layoutX="207.0" layoutY="38.0" prefHeight="31.0" prefWidth="208.0" text="Batch Input Form" textAlignment="CENTER">
             <font>
@@ -19,7 +19,9 @@
         </Label>
         <TextField fx:id="BatchIdTextField" layoutX="186.0" layoutY="98.0" prefHeight="25.0" prefWidth="248.0" promptText="Batch ID" />
         <TextField fx:id="DepartmentIdTextField" layoutX="186.0" layoutY="157.0" prefHeight="25.0" prefWidth="248.0" promptText="Department ID" />
-        <Button fx:id="BatchButtonSubmitForm" layoutX="207.0" layoutY="215.0" mnemonicParsing="false" onAction="#onSubmitAction" prefHeight="26.0" prefWidth="72.0" text="Submit" />
-        <Button fx:id="DeleteButtonTextField" layoutX="331.0" layoutY="214.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Delete" />
+        <Button fx:id="BatchButtonSubmitForm" layoutX="274.0" layoutY="407.0" mnemonicParsing="false" onAction="#onSubmitAction" prefHeight="26.0" prefWidth="72.0" text="Submit" />
+      <TextField fx:id="CourseIdTextField" layoutX="186.0" layoutY="217.0" prefHeight="25.0" prefWidth="208.0" promptText="Course ID" />
+      <Button fx:id="AddButton" layoutX="405.0" layoutY="217.0" mnemonicParsing="false" onAction="#onAddAction" text="+" />
+      <TextArea fx:id="CoursesTextArea" layoutX="186.0" layoutY="272.0" prefHeight="122.0" prefWidth="248.0" />
     </children>
 </AnchorPane>

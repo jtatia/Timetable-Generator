@@ -35,9 +35,6 @@ public class TeacherFormViewController {
     private Label TeacherFormHeading;
 
     @FXML
-    private Button TeacherFormDeleteButton;
-
-    @FXML
     private void submitButtonAction(ActionEvent event) throws IOException {
         String teacherId=TeacherIdTextField.getText();
         String teacherName=TeacherNameTextField.getText();
