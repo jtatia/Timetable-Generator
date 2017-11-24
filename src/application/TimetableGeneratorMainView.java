@@ -106,7 +106,22 @@ public class TimetableGeneratorMainView implements Initializable{
     }
 
     @FXML
-    private void generateTable(ActionEvent event){
+    private void generateTable(ActionEvent event) throws IOException {
+
+        // call the timetable generation algorithm now and get required values
+        // may need to change here and also in FinalTimetableView to pass the required parameters
+
+        FinalTimetableViewController controller = new FinalTimetableViewController();
+        // call the function to set init data
+
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setController(controller);
+        loader.setLocation(getClass().getResource("FinalTimetableView.fxml"));
+        AnchorPane pane = loader.load();
+        removeSplits();
+        splitpane.getItems().addAll(pane);
+        splitpane.setDividerPosition(0,1/(double)3);
 
     }
 
