@@ -32,5 +32,7 @@ public class BatchFormViewController {
         String deptName= DepartmentIdTextField.getText();
         Batch department = new Batch(deptId,deptName);
         BatchDAO.insertBatch(department);
+        BatchIdTextField.setText("");
+        DepartmentIdTextField.setText("");
     }
 }

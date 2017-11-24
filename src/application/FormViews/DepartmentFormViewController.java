@@ -35,6 +35,8 @@ public class DepartmentFormViewController {
         String deptName=DeptNameTextField.getText();
         Department department = new Department(deptId,deptName);
         DepartmentDAO.insertDepartment(department);
+        DeptIdTextField.setText("");
+        DeptNameTextField.setText("");
     }
 
 }
