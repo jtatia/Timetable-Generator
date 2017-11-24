@@ -61,12 +61,12 @@ public class TimetableGeneratorMainView implements Initializable{
 
 
     private void removeSplits() {
-        Node component1 = splitpane.getItems().get(1);
-        Node component2 = splitpane.getItems().get(2);
-
-        splitpane.getItems().remove(component1);
-        splitpane.getItems().remove(component2);
-
+        int size = splitpane.getItems().size();
+        for(int i=size-1;i>0;i--)
+        {
+            Node component1 = splitpane.getItems().get(1);
+            splitpane.getItems().remove(component1);
+        }
     }
 
     @FXML
