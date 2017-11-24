@@ -51,7 +51,7 @@ public class TeacherDAO {
                 Teacher teacherObj = new Teacher(tid,tname,dname);
                 teacherList.add(teacherObj);
             }
-            //System.out.println("Fetched :: "+teacherList.size());
+
         }catch(Exception exc){
             exc.printStackTrace();
         }finally {

@@ -24,7 +24,7 @@ public class TripletDAO {
         try{
             tripletArrayList = new ArrayList<Triplet>();
             pstmt = myCon.prepareStatement("select teaches.courseId,teaches.teacherId," +
-                    "studies.batchId from teaches,studies where teaches.courseId = studies.courseId");
+                    "studies.batchId from teaches,studies where teaches.courseId = studies.courseId group by teaches.courseId order by count(studies.batchId) desc");
             ResultSet rs = pstmt.executeQuery();
             TeacherDAO teacherDAO = new TeacherDAO();
             CourseDAO courseDAO = new CourseDAO();
