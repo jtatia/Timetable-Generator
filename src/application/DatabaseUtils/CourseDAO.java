@@ -21,7 +21,7 @@ public class CourseDAO {
             pstmt.setInt(3,course.getFrequencyOfCourse());
             pstmt.setInt(4,course.getCourseCredits());
             pstmt.executeUpdate();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         finally {
@@ -29,7 +29,7 @@ public class CourseDAO {
             {
                 try {
                     pstmt.close();
-                } catch (SQLException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -45,6 +45,7 @@ public class CourseDAO {
         try {
             stmt = conn.createStatement();
             rs=stmt.executeQuery("Select * from course");
+
             while(rs.next())
             {
                 Course course =  new Course();
@@ -52,10 +53,11 @@ public class CourseDAO {
                 course.setCourseName(rs.getString(2));
                 course.setFrequencyOfCourse(rs.getInt(3));
                 course.setCourseCredits(rs.getInt(4));
+
                 list.add(course);
             }
         }
-        catch (SQLException e) {
+        catch (Exception e) {
             e.printStackTrace();
         }
         finally {
@@ -63,7 +65,7 @@ public class CourseDAO {
             {
                 try {
                     stmt.close();
-                } catch (SQLException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -88,7 +90,7 @@ public class CourseDAO {
                 course.setCourseCredits(rs.getInt(4));
             }
         }
-        catch (SQLException e) {
+        catch (Exception e) {
             e.printStackTrace();
         }
         finally {
@@ -96,7 +98,7 @@ public class CourseDAO {
             {
                 try {
                     stmt.close();
-                } catch (SQLException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }

@@ -11,9 +11,9 @@ public class DatabaseConnection {
     public static Connection conn = null;
     public static void openConnection()
     {
-        String connectionUrl="jdbc:mysql://localhost:3306/student";
+        String connectionUrl="jdbc:mysql://localhost:3306/abc";
         String userName="root";
-        String userPass="root";
+        String userPass="madrigal";
 
         try {
             Class.forName("com.mysql.jdbc.Driver");

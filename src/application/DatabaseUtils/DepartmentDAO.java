@@ -22,13 +22,13 @@ public class DepartmentDAO {
             preparedStatement.setString(1,department.getId());
             preparedStatement.setString(2,department.getDeptName());
             preparedStatement.executeUpdate();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }finally {
             if(preparedStatement!=null){
                 try {
                     preparedStatement.close();
-                } catch (SQLException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -54,13 +54,13 @@ public class DepartmentDAO {
                 list.add(department);
             }
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }finally {
             if(preparedStatement!=null){
                 try {
                     preparedStatement.close();
-                } catch (SQLException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -90,13 +90,13 @@ public class DepartmentDAO {
                 list.add(department);
             }
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }finally {
             if(preparedStatement!=null){
                 try {
                     preparedStatement.close();
-                } catch (SQLException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }

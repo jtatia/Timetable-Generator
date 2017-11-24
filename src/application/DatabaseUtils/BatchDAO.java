@@ -21,13 +21,13 @@ public class BatchDAO {
             preparedStatement.setString(1,batch.getId());
             preparedStatement.setString(2,batch.getDepartment());
             preparedStatement.executeUpdate();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }finally {
             if(preparedStatement!=null){
                 try {
                     preparedStatement.close();
-                } catch (SQLException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -52,13 +52,13 @@ public class BatchDAO {
                 list.add(batch);
             }
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }finally {
             if(preparedStatement!=null){
                 try {
                     preparedStatement.close();
-                } catch (SQLException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -87,13 +87,13 @@ public class BatchDAO {
                 batch.setDepartment(resultSet.getString(2));
             }
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }finally {
             if(preparedStatement!=null){
                 try {
                     preparedStatement.close();
-                } catch (SQLException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -122,13 +122,13 @@ public class BatchDAO {
                 list.add(batch);
             }
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }finally {
             if(preparedStatement!=null){
                 try {
                     preparedStatement.close();
-                } catch (SQLException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }

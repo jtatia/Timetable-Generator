@@ -1,5 +1,6 @@
 package application;
 
+import application.DatabaseUtils.DatabaseConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,6 +12,7 @@ import java.io.IOException;
 public class TimetableGeneratorMain extends Application {
 
     public static void main(String[] args) {
+        DatabaseConnection.openConnection();
         launch(args);
     }
 
