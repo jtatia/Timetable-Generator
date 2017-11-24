@@ -73,7 +73,7 @@ public class TimetableGeneratorMainView implements Initializable{
     private void setDepartment(ActionEvent event) throws IOException {
 
         tablePath = "TableViews/DepartmentTableView.fxml";
-        formPath = "";
+        formPath = "FormViews/DepartmentFormView.fxml";
         removeSplits();
         addSplits();
     }
@@ -82,7 +82,7 @@ public class TimetableGeneratorMainView implements Initializable{
     private void setBatch(ActionEvent event) throws IOException {
 
         tablePath = "TableViews/BatchTableView.fxml";
-        formPath = "";
+        formPath = "FormViews/BatchFormView.fxml";
         removeSplits();
         addSplits();
     }
