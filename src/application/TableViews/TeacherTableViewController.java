@@ -39,8 +39,10 @@ public class TeacherTableViewController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         TeacherDAO teacherDAO=new TeacherDAO();
+        System.out.println("HERE");
         ArrayList<Teacher> teacherList = (ArrayList<Teacher>) teacherDAO.getAllTeachers();
         list = FXCollections.observableArrayList(teacherList);
+        System.out.print(list);
         TeacherNameColumn.setCellValueFactory(new PropertyValueFactory<Teacher,String>("teacherName"));
         TeacherDepartmentColumn.setCellValueFactory(new PropertyValueFactory<Teacher, String>("department"));
         TeacherColumn.setCellValueFactory(new PropertyValueFactory<Teacher, String>("id"));

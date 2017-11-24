@@ -44,6 +44,9 @@ public class TeacherFormViewController {
         String department=TeacherDepartmentTextField.getText();
         TeacherDAO teacherDAO=new TeacherDAO();
         teacherDAO.insertTeacher(teacherId,teacherName,department);
+        TeacherDepartmentTextField.setText("");
+        TeacherIdTextField.setText("");
+        TeacherNameTextField.setText("");
     }
 
 }
