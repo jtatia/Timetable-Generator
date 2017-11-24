@@ -30,6 +30,7 @@ public class Doublet {
         }
         this.teacher = teacher;
         this.course = course;
+        
     }
 
     public void insertDoubletBatch(Batch b){
