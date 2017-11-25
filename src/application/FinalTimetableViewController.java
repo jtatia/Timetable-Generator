@@ -85,7 +85,10 @@ public class FinalTimetableViewController implements Initializable {
     public String createPeriodString(TimetableSlots slot){
         String period = "";
         for (int i=0;i<slot.getDoubletList().size();i++){
-            period += slot.getDoubletList().get(i).getDCourse().getCourseId()+"\n";
+            if (slot.getDoubletList().get(i).getDTeacher().getTeacherName().length()>10)
+            period += slot.getDoubletList().get(i).getDCourse().getCourseId()+"("+slot.getDoubletList().get(i).getDTeacher().getTeacherName().substring(0,slot.getDoubletList().get(i).getDTeacher().getTeacherName().indexOf(" "))+")\n";
+            else
+                period += slot.getDoubletList().get(i).getDCourse().getCourseId()+"("+slot.getDoubletList().get(i).getDTeacher().getTeacherName()+")\n";
             /*for (Batch batch : slot.getDoubletList().get(i).getDoubletBatchList()){
                 period += batch.getId() + ", ";
             }
