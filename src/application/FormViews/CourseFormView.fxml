@@ -25,6 +25,5 @@
       </Label>
       <TextField fx:id="CourseDeleteTextField" layoutX="188.0" layoutY="427.0" prefHeight="25.0" prefWidth="177.0" promptText="Course ID" />
       <Button fx:id="DeleteButtonTextField" layoutX="421.0" layoutY="424.0" mnemonicParsing="false" onAction="#deleteButtonAction" prefHeight="25.0" prefWidth="93.0" text="Delete" />
-      <Slider orientation="VERTICAL" />
    </children>
 </AnchorPane>
