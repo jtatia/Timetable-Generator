@@ -62,4 +62,16 @@ public class TimetableSlots {
         }
         return -1;
     }
+
+    public ArrayList<Doublet> getDoubletList() {
+        return doubletList;
+    }
+
+    public HashSet<Teacher> getTeacherSet() {
+        return teacherSet;
+    }
+
+    public HashSet<Batch> getBatchSet() {
+        return batchSet;
+    }
 }

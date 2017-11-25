@@ -75,12 +75,12 @@ public class CourseDAO {
     public static Course getCourseByCourseId(String courseId)
     {
         Connection conn=DatabaseConnection.getConnection();
-        Statement stmt=null;
-        ResultSet rs=null;
+        PreparedStatement preparedStatement=null;
         Course course=null;
         try {
-            stmt = conn.createStatement();
-            rs=stmt.executeQuery("Select * from course where courseId="+courseId);
+            preparedStatement = conn.prepareStatement("SELECT * FROM course WHERE courseId = ?");
+            preparedStatement.setString(1,courseId);
+            ResultSet rs = preparedStatement.executeQuery();
             while(rs.next())
             {
                 course =  new Course();
@@ -94,10 +94,10 @@ public class CourseDAO {
             e.printStackTrace();
         }
         finally {
-            if(stmt!=null)
+            if(preparedStatement!=null)
             {
                 try {
-                    stmt.close();
+                    preparedStatement.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

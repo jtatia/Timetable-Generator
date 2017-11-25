@@ -1,6 +1,7 @@
 package application;
 
-import application.TimetableClasses.FinalTimetableRow;
+import application.DatabaseUtils.TripletDAO;
+import application.TimetableClasses.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,9 +10,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import sun.plugin.javascript.navig.Array;
 
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class FinalTimetableViewController implements Initializable {
 
@@ -47,21 +49,23 @@ public class FinalTimetableViewController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        // populate the list
+        TripletDAO dao = new TripletDAO();
+        TimetableAlgorithm obj = new TimetableAlgorithm();
 
+        List<ArrayList<TimetableSlots>> timeslots =  obj.createTimetable(dao.getAllTriplets());
+
+        ArrayList<String> arr = new ArrayList<>(Arrays.asList("Monday","Tuesday","Wednesday","Thursday","Friday"));
         for(int i=0;i<5;i++)
         {
             FinalTimetableRow r = new FinalTimetableRow();
-            r.setDay("Monday");
-            r.setPeriod1("CS355, CS455, \nCS355, CS455, \nCS355, CS455");
-            r.setPeriod2("CS355, CS455");
-            r.setPeriod3("CS355, CS455");
-            r.setPeriod4("CS355, CS455, \nCS355, CS455, \nCS355, CS455");
-            r.setPeriod5("CS355, CS455");
-            r.setPeriod6("CS355, CS455, \nCS355, CS455, \nCS355, CS455");
-            list.add(r);
-        }
-
+            r.setDay(arr.get(i));
+                r.setPeriod1(createPeriodString(timeslots.get(i).get(0)));
+                r.setPeriod2(createPeriodString(timeslots.get(i).get(1)));
+                r.setPeriod3(createPeriodString(timeslots.get(i).get(2)));
+                r.setPeriod4(createPeriodString(timeslots.get(i).get(3)));
+                r.setPeriod5(createPeriodString(timeslots.get(i).get(4)));
+                r.setPeriod6(createPeriodString(timeslots.get(i).get(5)));
+                list.add(r);
 
         // code till here (dummy data)
 
@@ -75,5 +79,18 @@ public class FinalTimetableViewController implements Initializable {
 
         TimeTable.setItems(list);
 
+    }
+    }
+
+    public String createPeriodString(TimetableSlots slot){
+        String period = "";
+        for (int i=0;i<slot.getDoubletList().size();i++){
+            period += slot.getDoubletList().get(i).getDCourse().getCourseId()+"\n";
+            /*for (Batch batch : slot.getDoubletList().get(i).getDoubletBatchList()){
+                period += batch.getId() + ", ";
+            }
+            period += ")\n";*/
+        }
+        return period;
     }
 }

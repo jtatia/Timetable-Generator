@@ -23,15 +23,16 @@ public class TripletDAO {
         ArrayList<Triplet> tripletArrayList = null;
         try{
             tripletArrayList = new ArrayList<Triplet>();
-            pstmt = myCon.prepareStatement("select teaches.courseId,teaches.teacherId," +
-                    "studies.batchId from teaches,studies where teaches.courseId = studies.courseId group by teaches.courseId order by count(studies.batchId) desc");
+            pstmt = myCon.prepareStatement("select course_teacher.courseId,course_teacher.teacherId, course_batch.batchId from\n" +
+                    " course_teacher,course_batch where course_teacher.courseId = course_batch.courseId\n" +
+                    "group by course_teacher.courseId,course_teacher.teacherId,course_batch.batchId order by count(course_teacher.courseId),course_teacher.courseId");
             ResultSet rs = pstmt.executeQuery();
             TeacherDAO teacherDAO = new TeacherDAO();
             CourseDAO courseDAO = new CourseDAO();
             BatchDAO batchDAO = new BatchDAO();
             while(rs.next()){
-                String teacherId = rs.getString(1);
-                String courseId = rs.getString(2);
+                String teacherId = rs.getString(2);
+                String courseId = rs.getString(1);
                 String batchId = rs.getString(3);
                 Triplet triplet = new Triplet(teacherDAO.getTeacherById(teacherId),
                         CourseDAO.getCourseByCourseId(courseId),BatchDAO.getBatchByID(batchId));
