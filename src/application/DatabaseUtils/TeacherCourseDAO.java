@@ -38,6 +38,28 @@ public class TeacherCourseDAO {
             }
         }
     }
+
+    public static void deleteCourseTeacherRecord(String courseId)
+    {
+        Connection connection = DatabaseConnection.getConnection();
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement("DELETE FROM course_teacher WHERE courseId = ?");
+            preparedStatement.setString(1,courseId);
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if(preparedStatement!=null){
+                try {
+                    preparedStatement.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
     public static Teacher getTeacherByCourseId(String courseId)
     {
         Teacher teacher=null;

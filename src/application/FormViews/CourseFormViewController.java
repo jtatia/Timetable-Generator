@@ -1,5 +1,6 @@
 package application.FormViews;
 
+import application.DatabaseUtils.CourseBatchDAO;
 import application.DatabaseUtils.CourseDAO;
 import application.DatabaseUtils.TeacherCourseDAO;
 import application.TimetableClasses.Course;
@@ -43,22 +44,33 @@ public class CourseFormViewController {
     @FXML
     private AnchorPane CourseFormAnchorView;
 
+    @FXML
+    private TextField CourseDeleteTextField;
 
     @FXML
     private void submitButtonAction(ActionEvent event) throws IOException {
-        int courseCredits=Integer.parseInt(CourseCreditsTextField.getText());
-        int frequencyOfCourse=Integer.parseInt(CourseFrequencyTextField.getText());
-        String courseId=CourseIdTextField.getText();
-        String courseName=CourseNameTextField.getText();
-        String teacherId=TeacherIdTextView.getText();
-        CourseCreditsTextField.setText("");
-        CourseFrequencyTextField.setText("");
-        CourseIdTextField.setText("");
-        CourseNameTextField.setText("");
-        TeacherIdTextView.setText("");
-        Course course = new Course(courseId,courseName,frequencyOfCourse,courseCredits);
-        CourseDAO.insertCourse(course);
-        TeacherCourseDAO.insertCourseTeacherRecord(courseId,teacherId);
+        String courseId = CourseIdTextField.getText();
+        String courseName = CourseNameTextField.getText();
+            int courseCredits = Integer.parseInt(CourseCreditsTextField.getText());
+            int frequencyOfCourse = Integer.parseInt(CourseFrequencyTextField.getText());
+            String teacherId = TeacherIdTextView.getText();
+            CourseCreditsTextField.setText("");
+            CourseFrequencyTextField.setText("");
+            CourseIdTextField.setText("");
+            CourseNameTextField.setText("");
+            TeacherIdTextView.setText("");
+            Course course = new Course(courseId, courseName, frequencyOfCourse, courseCredits);
+            CourseDAO.insertCourse(course);
+            TeacherCourseDAO.insertCourseTeacherRecord(courseId, teacherId);
+    }
+
+    @FXML
+    void deleteButtonAction(ActionEvent event) {
+        String courseId = CourseDeleteTextField.getText();
+        CourseDeleteTextField.setText("");
+        CourseBatchDAO.deleteCourseBatchRecord(courseId);
+        TeacherCourseDAO.deleteCourseTeacherRecord(courseId);
+        CourseDAO.deleteCourse(courseId);
     }
 
 

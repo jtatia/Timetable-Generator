@@ -38,6 +38,28 @@ public class CourseBatchDAO {
             }
         }
     }
+
+    public static void deleteCourseBatchRecord(String courseId)
+    {
+        Connection connection = DatabaseConnection.getConnection();
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement("DELETE FROM course_batch WHERE courseId = ?");
+            preparedStatement.setString(1,courseId);
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if(preparedStatement!=null){
+                try {
+                    preparedStatement.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
     public static List<Course> getCoursesByBatchId(String batchId)
     {
         ArrayList<Course> courseList = new ArrayList<Course>();
