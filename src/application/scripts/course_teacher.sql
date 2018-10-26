@@ -14,6 +14,6 @@ INSERT INTO course_teacher value('C05','T05');
 INSERT INTO course_teacher value('C06','T06');
 INSERT INTO course_teacher value('C07','T07');
 INSERT INTO course_teacher value('C08','T08');
-INSERT INTO course_teacher value('C01','T09');
+INSERT INTO course_teacher value('C09','T09');
 INSERT INTO course_teacher value('C10','T10');
 

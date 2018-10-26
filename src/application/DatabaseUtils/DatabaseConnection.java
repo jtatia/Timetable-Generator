@@ -13,7 +13,7 @@ public class DatabaseConnection {
     {
         String connectionUrl="jdbc:mysql://localhost:3306/abc";
         String userName="root";
-        String userPass="madrigal";
+        String userPass="hfcl2015";
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
